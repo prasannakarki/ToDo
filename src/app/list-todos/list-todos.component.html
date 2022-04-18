@@ -9,7 +9,10 @@
     </tr>
   </thead>
   <tbody>
-    <td>{{ todo.id }}</td>
-    <td>{{ todo.description }}</td>
+    <!-- ng for loop  -->
+    <tr *ngFor="let todo of todos">
+      <td>{{ todo.id }}</td>
+      <td>{{ todo.description }}</td>
+    </tr>
   </tbody>
 </table>

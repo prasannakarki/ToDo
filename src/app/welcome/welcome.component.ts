@@ -33,6 +33,15 @@ export class WelcomeComponent implements OnInit {
     );
     console.log('Get Welcome Message last line.');
   }
+
+  getWelcomeMessageWithParameter() {
+    // console.log(this.service.executeHelloWorldBeanService());
+    this.service.executeHelloWorldServiceWithPathVariable(this.name).subscribe(
+      (response) => this.handleSucessfulResponse(response),
+      (error) => this.handleErrorResponse(error)
+    );
+    console.log('Get Welcome Message last line.');
+  }
   handleSucessfulResponse(response) {
     this.welcomeMessageFromService = response.message;
     //console.log(response.message);

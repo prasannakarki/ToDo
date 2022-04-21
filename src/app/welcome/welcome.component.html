@@ -10,3 +10,7 @@
     Get Welcome Message
   </button>
 </div>
+<div class="container" *ngIf="welcomeMessageFromService">
+  <h2>Your Customzed Welcome Message.</h2>
+  {{ welcomeMessageFromService }}
+</div>

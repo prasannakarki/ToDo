@@ -45,4 +45,7 @@ export class ListTodosComponent implements OnInit {
       this.message = `Delete of ToDo ID#${id} Successful`;
     });
   }
+  updateTodo(id) {
+    console.log(`Update ${id} successful`);
+  }
 }

@@ -28,7 +28,7 @@ const routes: Routes = [
     canActivate: [RouteGuardService],
   },
   {
-    path: 'update',
+    path: 'todos/:id',
     component: TodoComponent,
     canActivate: [RouteGuardService],
   },

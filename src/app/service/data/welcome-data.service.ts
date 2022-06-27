@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export class HelloWorldBean {
   constructor(public message: string) {}
@@ -16,10 +16,24 @@ export class WelcomeDataService {
     );
     //console.log('Execute hello world service');
   }
-
+  //passes along base64 to http request.
   executeHelloWorldServiceWithPathVariable(name) {
+    let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
+
+    let header = new HttpHeaders({ Authorication: basicAuthHeaderString });
     return this.http.get<HelloWorldBean>(
-      `http://localhost:8080/hello-world/path-variable/${name}`
+      `http://localhost:8080/hello-world/path-variable/${name}`,
+      { headers: header }
     );
   }
+  //creates a base64 representation of username and password.
+  createBasicAuthenticationHttpHeader() {
+    let username = 'prasanna';
+    let passowrd = 'karki';
+    let basicAuthHeaderString =
+      'Basic ' + window.btoa(username + ':' + passowrd);
+    return basicAuthHeaderString;
+  }
+
+  //Ensure CORS response header values are valid
 }

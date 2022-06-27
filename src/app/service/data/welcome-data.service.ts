@@ -20,18 +20,18 @@ export class WelcomeDataService {
   executeHelloWorldServiceWithPathVariable(name) {
     let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
 
-    let header = new HttpHeaders({ Authorication: basicAuthHeaderString });
+    let headers = new HttpHeaders({ Authorization: basicAuthHeaderString });
     return this.http.get<HelloWorldBean>(
       `http://localhost:8080/hello-world/path-variable/${name}`,
-      { headers: header }
+      { headers }
     );
   }
   //creates a base64 representation of username and password.
   createBasicAuthenticationHttpHeader() {
     let username = 'prasanna';
-    let passowrd = 'karki';
+    let password = 'karki';
     let basicAuthHeaderString =
-      'Basic ' + window.btoa(username + ':' + passowrd);
+      'Basic ' + window.btoa(username + ':' + password);
     return basicAuthHeaderString;
   }
 
